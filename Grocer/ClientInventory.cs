@@ -6,8 +6,8 @@ namespace Grocer
 {
     public static class ClientInventory
     {
-        
-        
+
+
 
         public static Dictionary<string, InventoryItem> InventoryDictionary = new Dictionary<string, InventoryItem>
         {
@@ -28,5 +28,13 @@ namespace Grocer
             Price = InventoryVariables.HAMBURGER_PRICE,
             MarkDown = InventoryVariables.HAMBURGER_MARKDOWN
         };
+
+        public static void ResetInventory()
+        {
+            ClientInventory.InventoryDictionary = new Dictionary<string, InventoryItem>
+            {
+                {InventoryVariables.HAMBURGER_ID, InventoryVariables.HAMBURGER }
+            };
+        }
     }
 }
