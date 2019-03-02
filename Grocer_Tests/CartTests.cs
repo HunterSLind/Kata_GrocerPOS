@@ -18,7 +18,7 @@ namespace Grocer_Tests
         public void AddItem()
         {
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
-            Assert.AreEqual(1, cart.cartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(1, cart.CartItems[ClientInventory.HAMBURGER]);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Grocer_Tests
         {
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
-            Assert.AreEqual(2, cart.cartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(2, cart.CartItems[ClientInventory.HAMBURGER]);
         }
     }
 }

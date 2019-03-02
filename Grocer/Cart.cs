@@ -5,17 +5,17 @@ namespace Grocer
 {
     public class Cart
     {
-        public Dictionary<InventoryItem, decimal> cartItems = new Dictionary<InventoryItem, decimal>();
+        public Dictionary<InventoryItem, decimal> CartItems = new Dictionary<InventoryItem, decimal>();
 
         public void AddItem(string item)
         {
-            if(!cartItems.ContainsKey(ClientInventory.InventoryDictionary[item]))
+            if(!CartItems.ContainsKey(ClientInventory.InventoryDictionary[item]))
             {
-                cartItems.Add(ClientInventory.InventoryDictionary[item], 1);
+                CartItems.Add(ClientInventory.InventoryDictionary[item], 1);
             }
             else
             {
-                cartItems[ClientInventory.InventoryDictionary[item]] += 1;
+                CartItems[ClientInventory.InventoryDictionary[item]] += 1;
             }
         }
     }
