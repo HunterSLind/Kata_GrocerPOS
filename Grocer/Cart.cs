@@ -25,7 +25,12 @@ namespace Grocer
 
         public decimal GetCartTotal()
         {
-            throw new NotImplementedException();
+            decimal price = 0;
+            foreach (var item in CartItems)
+            {
+                price += item.Key.Price;
+            }
+            return price;
         }
     }
 }
