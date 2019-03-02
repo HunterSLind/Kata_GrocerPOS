@@ -12,7 +12,7 @@ namespace Grocer
         }
         public static void UpdateItemMarkdown(string item, decimal newMarkdown)
         {
-
+            ClientInventory.InventoryDictionary[item].MarkDown = newMarkdown;
         }
     }
 }
