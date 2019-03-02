@@ -20,7 +20,14 @@ namespace Grocer
         public void AddItem(string item, decimal units)
         {
             InventoryItem itemToAdd = ClientInventory.InventoryDictionary[item];
-            CartItems.Add(itemToAdd, units);
+            if (!CartItems.ContainsKey(itemToAdd))
+            {
+                CartItems.Add(itemToAdd, units);
+            }
+            else
+            {
+                CartItems[itemToAdd] += units;
+            }
         }
     }
 }
