@@ -25,7 +25,8 @@ namespace Grocer
 
         public void RemoveItem(string item, decimal amount)
         {
-
+            InventoryItem itemToRemove = ClientInventory.InventoryDictionary[item];
+            CartItems[itemToRemove] -= amount;
         }
     }
 }
