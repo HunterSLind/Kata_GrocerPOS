@@ -17,13 +17,7 @@ namespace Grocer
             CartItems[itemToAdd] += amount;
         }
 
-        public void RemoveItem(string item)
-        {
-            InventoryItem itemToRemove = ClientInventory.InventoryDictionary[item];
-            CartItems[itemToRemove] -= 1;
-        }
-
-        public void RemoveItem(string item, decimal amount)
+        public void RemoveItem(string item, decimal amount = 1)
         {
             InventoryItem itemToRemove = ClientInventory.InventoryDictionary[item];
             CartItems[itemToRemove] -= amount;
