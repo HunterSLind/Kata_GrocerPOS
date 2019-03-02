@@ -9,7 +9,14 @@ namespace Grocer
 
         public void AddItem(string item)
         {
-            cartItems.Add(ClientInventory.InventoryDictionary[item], 1);
+            if(!cartItems.ContainsKey(ClientInventory.InventoryDictionary[item]))
+            {
+                cartItems.Add(ClientInventory.InventoryDictionary[item], 1);
+            }
+            else
+            {
+                cartItems[ClientInventory.InventoryDictionary[item]] += 1;
+            }
         }
     }
 }
