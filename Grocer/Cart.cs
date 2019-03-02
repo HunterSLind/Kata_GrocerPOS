@@ -19,7 +19,8 @@ namespace Grocer
 
         public void RemoveItem(string item)
         {
-            throw new NotImplementedException();
+            InventoryItem itemToRemove = ClientInventory.InventoryDictionary[item];
+            CartItems[itemToRemove] -= 1;
         }
     }
 }
