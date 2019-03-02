@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Grocer
 {
     public class Cart
     {
-    }
+        public Dictionary<InventoryItem, decimal> cartItems = new Dictionary<InventoryItem, decimal>();
 
-    public class CartItem
-    {
-
+        public void AddItem(string item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

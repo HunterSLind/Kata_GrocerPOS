@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Grocer
 {
-    class InventoryItem
+    public class InventoryItem
     {
-        
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public decimal MarkDown { get; set; }
     }
 }
