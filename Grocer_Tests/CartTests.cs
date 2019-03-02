@@ -18,7 +18,7 @@ namespace Grocer_Tests
         public void AddItem()
         {
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
-            Assert.AreEqual(1, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(1, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Grocer_Tests
         {
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
-            Assert.AreEqual(2, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(2, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Grocer_Tests
         {
             decimal units = 1.29m;
             cart.AddItem(InventoryVariables.HAMBURGER_ID, units);
-            Assert.AreEqual(units, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(units, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace Grocer_Tests
             cart.AddItem(InventoryVariables.HAMBURGER_ID, units1);
             cart.AddItem(InventoryVariables.HAMBURGER_ID, units2);
             decimal expected = units1 + units2;
-            Assert.AreEqual(expected, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(expected, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@ namespace Grocer_Tests
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             cart.RemoveItem(InventoryVariables.HAMBURGER_ID);
             decimal expected = 0;
-            Assert.AreEqual(expected, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(expected, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace Grocer_Tests
             cart.AddItem(InventoryVariables.HAMBURGER_ID, unit1);
             cart.AddItem(InventoryVariables.HAMBURGER_ID, unit2);
             cart.RemoveItem(InventoryVariables.HAMBURGER_ID, unit1);
-            Assert.AreEqual(unit2, cart.CartItems[ClientInventory.HAMBURGER]);
+            Assert.AreEqual(unit2, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
     }
 }
