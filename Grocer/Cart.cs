@@ -22,5 +22,10 @@ namespace Grocer
             InventoryItem itemToRemove = ClientInventory.InventoryDictionary[item];
             CartItems[itemToRemove] -= amount;
         }
+
+        public decimal GetCartTotal()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

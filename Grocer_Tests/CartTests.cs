@@ -67,5 +67,12 @@ namespace Grocer_Tests
             cart.RemoveItem(InventoryVariables.HAMBURGER_ID, unit1);
             Assert.AreEqual(unit2, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
+
+        [TestMethod]
+        public void GetCartTotal()
+        {
+            cart.AddItem(InventoryVariables.HAMBURGER_ID);
+            Assert.AreEqual(InventoryVariables.HAMBURGER_PRICE, cart.GetCartTotal());
+        }
     }
 }
