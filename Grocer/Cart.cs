@@ -22,12 +22,9 @@ namespace Grocer
             InventoryItem itemToAdd = ClientInventory.InventoryDictionary[item];
             if (!CartItems.ContainsKey(itemToAdd))
             {
-                CartItems.Add(itemToAdd, units);
+                CartItems.Add(itemToAdd, 0);
             }
-            else
-            {
-                CartItems[itemToAdd] += units;
-            }
+            CartItems[itemToAdd] += units;
         }
     }
 }
