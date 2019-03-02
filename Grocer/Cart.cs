@@ -19,7 +19,8 @@ namespace Grocer
 
         public void AddItem(string item, decimal units)
         {
-            throw new NotImplementedException();
+            InventoryItem itemToAdd = ClientInventory.InventoryDictionary[item];
+            CartItems.Add(itemToAdd, units);
         }
     }
 }
