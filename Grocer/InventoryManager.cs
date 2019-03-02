@@ -8,7 +8,7 @@ namespace Grocer
     {
         public static void UpdateItemPrice(string item, decimal newPrice)
         {
-
+            ClientInventory.InventoryDictionary[item].Price = newPrice;
         }
     }
 }
