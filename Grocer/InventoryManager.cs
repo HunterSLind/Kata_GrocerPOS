@@ -10,5 +10,9 @@ namespace Grocer
         {
             ClientInventory.InventoryDictionary[item].Price = newPrice;
         }
+        public static void UpdateItemMarkdown(string item, decimal newMarkdown)
+        {
+
+        }
     }
 }

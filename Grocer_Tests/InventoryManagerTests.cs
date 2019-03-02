@@ -15,5 +15,13 @@ namespace Grocer_Tests
 
             Assert.AreEqual(newPrice, ClientInventory.InventoryDictionary[InventoryVariables.HAMBURGER_ID].Price);
         }
+
+        [TestMethod]
+        public void UpdateItemMarkdown()
+        {
+            decimal newMarkdown = InventoryVariables.HAMBURGER_MARKDOWN + 0.42m;
+            InventoryManager.UpdateItemMarkdown(InventoryVariables.HAMBURGER_ID, newMarkdown);
+            Assert.AreEqual(newMarkdown, ClientInventory.InventoryDictionary[InventoryVariables.HAMBURGER_ID].MarkDown);
+        }
     }
 }
