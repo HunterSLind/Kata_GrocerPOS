@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Grocer
 {
-    public class InventoryManager
+    public static class InventoryManager
     {
+        public static void UpdateItemPrice(string item, decimal newPrice)
+        {
+
+        }
     }
 }
