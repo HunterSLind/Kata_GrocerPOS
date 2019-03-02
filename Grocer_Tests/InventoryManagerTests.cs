@@ -23,7 +23,7 @@ namespace Grocer_Tests
             InventoryManager.UpdateItemMarkdown(InventoryVariables.HAMBURGER_ID, newMarkdown);
             Assert.AreEqual(newMarkdown, ClientInventory.InventoryDictionary[InventoryVariables.HAMBURGER_ID].MarkDown);
         }
-
+        
         [TestCleanup]
         public void Cleanup()
         {

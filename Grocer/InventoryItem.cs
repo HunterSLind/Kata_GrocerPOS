@@ -6,8 +6,28 @@ namespace Grocer
 {
     public class InventoryItem
     {
-        public string Name { get; set; }
+        public string Name { get; }
         public decimal Price { get; set; }
         public decimal MarkDown { get; set; }
+
+        public InventoryItem(string name)
+        {
+            Name = name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            InventoryItem that = (InventoryItem)obj;
+            if(this.Name == that.Name)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
     }
 }
