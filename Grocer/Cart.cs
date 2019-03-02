@@ -16,5 +16,10 @@ namespace Grocer
             }
             CartItems[itemToAdd] += 1;
         }
+
+        public void AddItem(string item, decimal units)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
