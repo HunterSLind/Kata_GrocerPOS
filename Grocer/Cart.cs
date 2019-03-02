@@ -9,7 +9,7 @@ namespace Grocer
 
         public void AddItem(string item)
         {
-            throw new NotImplementedException();
+            cartItems.Add(ClientInventory.InventoryDictionary[item], 1);
         }
     }
 }
