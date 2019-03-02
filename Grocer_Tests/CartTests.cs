@@ -47,5 +47,14 @@ namespace Grocer_Tests
             decimal expected = units1 + units2;
             Assert.AreEqual(expected, cart.CartItems[ClientInventory.HAMBURGER]);
         }
+
+        [TestMethod]
+        public void RemoveItem()
+        {
+            cart.AddItem(InventoryVariables.HAMBURGER_ID);
+            cart.RemoveItem(InventoryVariables.HAMBURGER_ID);
+            decimal expected = 0;
+            Assert.AreEqual(expected, cart.CartItems[ClientInventory.HAMBURGER]);
+        }
     }
 }

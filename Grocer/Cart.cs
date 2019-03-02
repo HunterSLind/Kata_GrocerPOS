@@ -16,5 +16,10 @@ namespace Grocer
             }
             CartItems[itemToAdd] += amount;
         }
+
+        public void RemoveItem(string item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
