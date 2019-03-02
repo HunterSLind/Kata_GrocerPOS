@@ -20,5 +20,13 @@ namespace Grocer_Tests
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             Assert.AreEqual(1, cart.cartItems[ClientInventory.HAMBURGER]);
         }
+
+        [TestMethod]
+        public void AddItems()
+        {
+            cart.AddItem(InventoryVariables.HAMBURGER_ID);
+            cart.AddItem(InventoryVariables.HAMBURGER_ID);
+            Assert.AreEqual(2, cart.cartItems[ClientInventory.HAMBURGER]);
+        }
     }
 }
