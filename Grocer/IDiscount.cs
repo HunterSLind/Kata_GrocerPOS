@@ -65,7 +65,7 @@ namespace Grocer
             for (int i = 0; i < amount; i++)
             {
                 currentCount++;
-                if (!isDeal || amount - i < (_amountAcquiredInDeal))
+                if (!isDeal)
                 {
                     price += item.Price;
                     if(currentCount == _amountRequiredForDeal && i < _limit)
@@ -76,7 +76,15 @@ namespace Grocer
                 }
                 else
                 {
-                    price += item.Price - (item.Price * _dealMod);
+                    decimal amountLeft = amount - i;
+                    if (currentCount == 1 && amountLeft < _amountAcquiredInDeal)
+                    {
+                        price += item.Price;
+                    }
+                    else
+                    {
+                        price += item.Price - (item.Price * _dealMod);
+                    }
                     if(currentCount == _amountAcquiredInDeal)
                     {
                         currentCount = 0;
