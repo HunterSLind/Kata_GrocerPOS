@@ -26,11 +26,16 @@ namespace Grocer
         public decimal GetCartTotal()
         {
             decimal price = 0;
-            foreach (var item in CartItems)
+            foreach (var cartItem in CartItems)
             {
-                price += item.Key.Price * item.Value;
+                price += getTotalPrice(cartItem.Key, cartItem.Value);
             }
             return Math.Round(price, 2, MidpointRounding.AwayFromZero);
+        }
+
+        private decimal getTotalPrice(InventoryItem item, decimal amount)
+        {
+            return item.Price* amount;
         }
     }
 }
