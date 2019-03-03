@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CartTests.cs" />
     <Compile Include="InventoryManagerTests.cs" />
+    <Compile Include="MarkdownTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

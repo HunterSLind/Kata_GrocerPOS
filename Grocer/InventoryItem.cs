@@ -9,7 +9,7 @@ namespace Grocer
         public string Name { get; }
         public decimal Price { get; set; }
         public decimal MarkDown { get; set; }
-        public DiscountType discountType { get; set; }
+        public IDiscount Discount { get; set; }
 
 
         public InventoryItem(string name)
@@ -33,11 +33,5 @@ namespace Grocer
         }
 
 
-    }
-
-    public enum DiscountType
-    {
-        NONE = 0,
-        MARKDOWN = 1
     }
 }

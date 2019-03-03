@@ -6,6 +6,7 @@ namespace Grocer
 {
     public static class InventoryVariables
     {
+        #region HAMBURGER
         public static readonly string HAMBURGER_ID = "hamburger";
         public static readonly decimal HAMBURGER_PRICE = 4.99m;
         public static readonly decimal HAMBURGER_MARKDOWN = 0;
@@ -25,11 +26,12 @@ namespace Grocer
                 return _hamburger;
             }
         }
+        #endregion
 
+        #region APPLE
         public static readonly string APPLE_ID = "apple";
         public static readonly decimal APPLE_PRICE = 1.49m;
         public static readonly decimal APPLE_MARKDOWN = 0.50m;
-        public static readonly DiscountType APPLE_DISCOUNT = DiscountType.MARKDOWN;
         private static InventoryItem _apple { get; set; }
         public static InventoryItem APPLE
         {
@@ -41,13 +43,14 @@ namespace Grocer
                     {
                         Price = APPLE_PRICE,
                         MarkDown = APPLE_MARKDOWN,
-                        discountType = DiscountType.MARKDOWN
-                    };
+                        Discount = new Markdown()
+                };
                 }
                 return _apple;
             }
         }
-
+        #endregion
+        
 
         public static void ResetInventory()
         {
