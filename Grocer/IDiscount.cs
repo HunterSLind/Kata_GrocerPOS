@@ -60,20 +60,19 @@ namespace Grocer
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
             decimal price = 0;
-            decimal discountCount = 0;
-
-            if(amount > _limit)
-            {
-                discountCount = Math.Floor(_limit / (_amountAcquiredInDeal + _amountRequiredForDeal)) * _amountAcquiredInDeal;
-            }
-            else
-            {
-                discountCount = Math.Floor(amount / (_amountAcquiredInDeal + _amountRequiredForDeal)) * _amountAcquiredInDeal;
-            }
-            decimal nonDiscounted = amount - discountCount;
-
+            // Determine if amount or limit is larger
+            decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
+            // Determine the amount of times we get a discount
+            decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountAcquiredInDeal + _amountRequiredForDeal));
+            // Multiply the amount of discount times by the amount of acquired items in a discount
+            decimal discountItemCount = discountCount * _amountAcquiredInDeal;
+            // determine all non-discounteed items.
+            decimal nonDiscounted = amount - discountItemCount;
+            // determine modified price
             decimal modifiedPrice = item.Price - (item.Price * _dealMod);
-            price += discountCount * modifiedPrice;
+
+            // Math for pricing.
+            price += discountItemCount * modifiedPrice;
             price += nonDiscounted * item.Price;
             return price;
         }
