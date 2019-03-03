@@ -12,6 +12,7 @@ namespace Grocer_Tests
             Markdown mkdown = new Markdown();
             decimal actual = mkdown.GetDiscountedPrice(InventoryVariables.APPLE, 1);
             decimal expected = InventoryVariables.APPLE.Price - InventoryVariables.APPLE.MarkDown;
+            Assert.AreEqual(expected, actual);
         }
     }
 }
