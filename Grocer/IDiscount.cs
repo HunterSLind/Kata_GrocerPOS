@@ -32,8 +32,15 @@ namespace Grocer
             decimal price = 0;
             // determine how many bundles there are:
             decimal numBundles = amount / _amountInBundle;
+            // round number of bundles to nearest whole number
+            numBundles = Math.Floor(numBundles);
+            // now determine the number of banana's that will not be bundled
+            decimal totalBundled = numBundles* _amountInBundle;
+            decimal totalUnbundled = amount - totalBundled;
 
             price = item.BundlePrice * numBundles;
+            price += item.Price * totalUnbundled;
+            
             return price;
         }
     }
