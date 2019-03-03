@@ -9,6 +9,8 @@ namespace Grocer
         public string Name { get; }
         public decimal Price { get; set; }
         public decimal MarkDown { get; set; }
+        public DiscountType discountType { get; set; }
+
 
         public InventoryItem(string name)
         {
@@ -29,5 +31,12 @@ namespace Grocer
         {
             return Name.GetHashCode();
         }
+
+
+    }
+
+    public enum DiscountType
+    {
+        NONE
     }
 }

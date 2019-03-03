@@ -83,5 +83,13 @@ namespace Grocer_Tests
             decimal expected = Math.Round(unit * InventoryVariables.HAMBURGER_PRICE, 2, MidpointRounding.AwayFromZero);
             Assert.AreEqual(expected, cart.GetCartTotal());
         }
+
+        [TestMethod]
+        public void GetCartWithMarkdownItemTotal()
+        {
+            cart.AddItem(InventoryVariables.APPLE_ID);
+            decimal expected = InventoryVariables.APPLE_PRICE - InventoryVariables.APPLE_MARKDOWN;
+            Assert.AreEqual(expected, cart.GetCartTotal());
+        }
     }
 }
