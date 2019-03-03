@@ -61,6 +61,8 @@ namespace Grocer
         {
             decimal price = 0;
             decimal currentCount = 0;
+            decimal currentCountReset = 0;
+            decimal currentCountStart = 1; // Start of count, used to check if it's the first discounted item.
             bool isDeal = false;
             for (int i = 0; i < amount; i++)
             {
@@ -70,14 +72,14 @@ namespace Grocer
                     price += item.Price;
                     if(currentCount == _amountRequiredForDeal && i < _limit)
                     {
-                        currentCount = 0;
+                        currentCount = currentCountReset;
                         isDeal = true;
                     }
                 }
                 else
                 {
                     decimal amountLeft = amount - i;
-                    if (currentCount == 1 && amountLeft < _amountAcquiredInDeal)
+                    if (currentCount == currentCountStart && amountLeft < _amountAcquiredInDeal)
                     {
                         price += item.Price;
                     }
@@ -87,7 +89,7 @@ namespace Grocer
                     }
                     if(currentCount == _amountAcquiredInDeal)
                     {
-                        currentCount = 0;
+                        currentCount = currentCountReset;
                         isDeal = false;
                     }
                 }
