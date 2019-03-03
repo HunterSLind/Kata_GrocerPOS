@@ -68,7 +68,7 @@ namespace Grocer
             {
                 if(!isDeal)
                 {
-                    numReq = 1;
+                    numReq++;
                     price += item.Price;
                     if(numReq == _amountRequiredForDeal && limit < _limit)
                     {
