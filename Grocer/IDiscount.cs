@@ -36,6 +36,8 @@ namespace Grocer
             numBundles = Math.Floor(numBundles);
             // now determine the number of banana's that will not be bundled
             decimal totalBundled = numBundles* _amountInBundle;
+            totalBundled = Math.Min(totalBundled, _limit);
+            numBundles = totalBundled / _amountInBundle;
             decimal totalUnbundled = amount - totalBundled;
 
             price = item.BundlePrice * numBundles;
