@@ -60,7 +60,8 @@ namespace Grocer
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
             decimal price = 0;
-            price = item.Price;
+            decimal numDeals = Math.Floor(amount / (_amountRequiredForDeal + _amountAcquiredInDeal));
+            price = item.Price*(amount - numDeals);
             return price;
 
         }
