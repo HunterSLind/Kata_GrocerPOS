@@ -62,6 +62,7 @@ namespace Grocer
             decimal price = 0;
             decimal numAcq = 0;
             decimal numReq = 0;
+            int limit = 0;
             bool isDeal = false;
             for (int i = 0; i < amount; i++)
             {
@@ -69,8 +70,9 @@ namespace Grocer
                 {
                     numReq = 1;
                     price += item.Price;
-                    if(numReq == _amountRequiredForDeal)
+                    if(numReq == _amountRequiredForDeal && limit < _limit)
                     {
+                        limit++;
                         numReq = 0;
                         isDeal = true;
                     }
@@ -78,6 +80,7 @@ namespace Grocer
                 else
                 {
                     numAcq = 1;
+                    limit++;
                     if(numAcq == _amountAcquiredInDeal)
                     {
                         isDeal = false;
