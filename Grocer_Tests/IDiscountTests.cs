@@ -108,8 +108,8 @@ namespace Grocer_Tests
         public void DealPriceTestWithMultipleDeals()
         {
             Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 2, 2, 8);
-            decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 8); // 8 durians
-            decimal expected = InventoryVariables.DURIAN_PRICE * 5; // for the price of 6 durians
+            decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 10); // 10 durians
+            decimal expected = InventoryVariables.DURIAN_PRICE * 8; // for the price of 6 durians
             Assert.AreEqual(expected, actual);
         }
     }
