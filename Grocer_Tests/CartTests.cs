@@ -74,5 +74,14 @@ namespace Grocer_Tests
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             Assert.AreEqual(InventoryVariables.HAMBURGER_PRICE, cart.GetCartTotal());
         }
+
+        [TestMethod]
+        public void GetCartWithWeightedItemTotal()
+        {
+            decimal unit = 1.49m;
+            cart.AddItem(InventoryVariables.HAMBURGER_ID, unit);
+            decimal expected = Math.Round(unit * InventoryVariables.HAMBURGER_PRICE, 2, MidpointRounding.AwayFromZero);
+            Assert.AreEqual(expected, cart.GetCartTotal());
+        }
     }
 }
