@@ -8,7 +8,8 @@ namespace Grocer
     {
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
-            throw new NotImplementedException();
+            decimal newPrice = item.Price - item.MarkDown;
+            return newPrice * amount;
         }
     }
 }
