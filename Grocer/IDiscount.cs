@@ -71,14 +71,12 @@ namespace Grocer
                     price += item.Price;
                     if(currentCount == _amountRequiredForDeal && limit < _limit)
                     {
-                        limit++;
                         currentCount = 0;
                         isDeal = true;
                     }
                 }
                 else
                 {
-                    limit++;
                     price += item.Price - (item.Price * _dealMod);
                     if(currentCount == _amountAcquiredInDeal)
                     {
@@ -86,6 +84,7 @@ namespace Grocer
                         isDeal = false;
                     }
                 }
+                limit++;
             }
             return price;
 
