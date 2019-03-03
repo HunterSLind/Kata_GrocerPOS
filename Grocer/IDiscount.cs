@@ -63,9 +63,8 @@ namespace Grocer
             decimal currentCount = 0;
             decimal currentCountReset = 0;
             bool isDeal = false;
-            bool isFirstItemInDeal = false;
-            bool enoughItemsForDeal = true;
-            for (int i = 0; i < amount; i++)
+            decimal amountItemsLeft = 0;
+            for (int i = 1; i <= amount; i++)
             {
                 currentCount++;
                 if (!isDeal)
@@ -75,28 +74,19 @@ namespace Grocer
                     {
                         currentCount = currentCountReset;
                         isDeal = true;
-                        isFirstItemInDeal = true;
+                        amountItemsLeft = amount - i;
                     }
                 }
                 else
                 {
-                    if (isFirstItemInDeal)
+                    // if there aren't enough items left
+                    if (amountItemsLeft < _amountAcquiredInDeal)
                     {
-                        isFirstItemInDeal = false;
-
-                        decimal amountLeft = amount - i;
-                        if (amountLeft < _amountAcquiredInDeal)
-                        {
-                            enoughItemsForDeal = false;
-                        }
-                    }
-                    if (enoughItemsForDeal)
-                    {
-                        price += item.Price - (item.Price * _dealMod);
+                        price += item.Price;
                     }
                     else
                     {
-                        price += item.Price;
+                        price += item.Price - (item.Price * _dealMod);
                     }
                     if (currentCount == _amountAcquiredInDeal)
                     {
