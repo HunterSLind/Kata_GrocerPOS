@@ -28,9 +28,9 @@ namespace Grocer
             decimal price = 0;
             foreach (var item in CartItems)
             {
-                price += item.Key.Price;
+                price += item.Key.Price * item.Value;
             }
-            return price;
+            return Math.Round(price, 2, MidpointRounding.AwayFromZero);
         }
     }
 }
