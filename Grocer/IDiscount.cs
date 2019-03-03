@@ -30,7 +30,10 @@ namespace Grocer
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
             decimal price = 0;
-            price = item.BundlePrice;
+            // determine how many bundles there are:
+            decimal numBundles = amount / _amountInBundle;
+
+            price = item.BundlePrice * numBundles;
             return price;
         }
     }
