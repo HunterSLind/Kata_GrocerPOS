@@ -58,5 +58,13 @@ namespace Grocer_Tests
             decimal expected = InventoryVariables.CLEMENTINE_PRICE; // for the price of 1
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void DealPriceTestWithExtra()
+        {
+            Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 1, 1, 2);
+            decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 3); // 3 clementines
+            decimal expected = InventoryVariables.CLEMENTINE_PRICE * 2; // for the price of 2
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
