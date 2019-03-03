@@ -29,7 +29,9 @@ namespace Grocer
         }
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
-            throw new NotImplementedException();
+            decimal price = 0;
+            price = item.BundlePrice;
+            return price;
         }
     }
 }
