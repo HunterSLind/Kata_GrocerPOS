@@ -131,5 +131,14 @@ namespace Grocer_Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void DealPriceTestDealsOfFourWithExtra()
+        {
+            Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 4, 4, 16);
+            decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 15); // 15 clementines
+            decimal expected = InventoryVariables.CLEMENTINE_PRICE * 11; // for the price of 11 clementines
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
