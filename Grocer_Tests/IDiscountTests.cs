@@ -112,5 +112,14 @@ namespace Grocer_Tests
             decimal expected = InventoryVariables.DURIAN_PRICE * 8; // for the price of 6 durians
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void DealPriceTestPartialFulfilledDeal()
+        {
+            Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 2, 2, 8);
+            decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 7); // 7 durians
+            decimal expected = InventoryVariables.DURIAN_PRICE * 6; // for the price of 6 durians
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
