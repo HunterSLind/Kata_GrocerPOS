@@ -60,8 +60,30 @@ namespace Grocer
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
             decimal price = 0;
-            decimal numDeals = Math.Floor(amount / (_amountRequiredForDeal + _amountAcquiredInDeal));
-            price = item.Price*(amount - numDeals);
+            decimal numAcq = 0;
+            decimal numReq = 0;
+            bool isDeal = false;
+            for (int i = 0; i < amount; i++)
+            {
+                if(!isDeal)
+                {
+                    numReq = 1;
+                    price += item.Price;
+                    if(numReq == _amountRequiredForDeal)
+                    {
+                        numReq = 0;
+                        isDeal = true;
+                    }
+                }
+                else
+                {
+                    numAcq = 1;
+                    if(numAcq == _amountAcquiredInDeal)
+                    {
+                        isDeal = false;
+                    }
+                }
+            }
             return price;
 
         }
