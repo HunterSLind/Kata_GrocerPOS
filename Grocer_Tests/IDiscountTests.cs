@@ -40,5 +40,14 @@ namespace Grocer_Tests
             decimal expected = InventoryVariables.BANANA_BUNDLE_PRICE + InventoryVariables.BANANA_PRICE;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void BundleWithLimitPricingTest()
+        {
+            Bundle bundle = new Bundle(2, 4);
+            decimal actual = bundle.GetDiscountedPrice(InventoryVariables.BANANA, 7);
+            decimal expected = (InventoryVariables.BANANA_BUNDLE_PRICE * 2) + (InventoryVariables.BANANA_PRICE * 3);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
