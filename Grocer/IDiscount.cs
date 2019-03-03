@@ -60,31 +60,29 @@ namespace Grocer
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
             decimal price = 0;
-            decimal numAcq = 0;
-            decimal numReq = 0;
+            decimal currentCount = 0;
             int limit = 0;
             bool isDeal = false;
             for (int i = 0; i < amount; i++)
             {
-                if(!isDeal)
+                currentCount++;
+                if (!isDeal)
                 {
-                    numReq++;
                     price += item.Price;
-                    if(numReq == _amountRequiredForDeal && limit < _limit)
+                    if(currentCount == _amountRequiredForDeal && limit < _limit)
                     {
                         limit++;
-                        numReq = 0;
+                        currentCount = 0;
                         isDeal = true;
                     }
                 }
                 else
                 {
-                    numAcq++;
                     limit++;
                     price += item.Price - (item.Price * _dealMod);
-                    if(numAcq == _amountAcquiredInDeal)
+                    if(currentCount == _amountAcquiredInDeal)
                     {
-                        numAcq = 0;
+                        currentCount = 0;
                         isDeal = false;
                     }
                 }
