@@ -65,11 +65,31 @@ namespace Grocer
                     _banana = new InventoryItem(BANANA_ID)
                     {
                         Price = BANANA_PRICE,
-                        BundlePrice = BANANA_BUNDLE_PRICE,
-                        Discount = new Bundle(3, 6)
+                        BundlePrice = BANANA_BUNDLE_PRICE
                     };
                 }
                 return _banana;
+            }
+        }
+        #endregion
+
+        #region CLEMENTINE
+        public static readonly string CLEMENTINE_ID = "clementine";
+        public static readonly decimal CLEMENTINE_PRICE = 1.99m;
+        public static readonly decimal CLEMENTINE_DEAL_MOD = 1.00m; // 100% off
+        private static InventoryItem _clementine { get; set; }
+        public static InventoryItem CLEMENTINE
+        {
+            get
+            {
+                if (_clementine == null)
+                {
+                    _clementine = new InventoryItem(CLEMENTINE_ID)
+                    {
+                        Price = CLEMENTINE_PRICE
+                    };
+                }
+                return _clementine;
             }
         }
         #endregion

@@ -43,4 +43,20 @@ namespace Grocer
             return price;
         }
     }
+
+    public class Deal : IDiscount
+    {
+        decimal _dealMod;
+        int _limit;
+        decimal _amountRequiredForDeal;
+        decimal _amountAcquiredInDeal;
+        public Deal(decimal dealMod, decimal amountRequiredForDeal, decimal amountAcquiredInDeal, int limit)
+        {
+
+        }
+        public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
