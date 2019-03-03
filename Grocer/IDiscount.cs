@@ -35,11 +35,11 @@ namespace Grocer
             // round number of bundles to nearest whole number
             numBundles = Math.Floor(numBundles);
             // determine number of unbundled items.
-            decimal totalUnbundled = amount - (numBundles*_amountInBundle);
+            decimal totalUnbundled = amount - (numBundles * _amountInBundle);
 
             price = item.BundlePrice * numBundles;
             price += item.Price * totalUnbundled;
-            
+
             return price;
         }
     }
@@ -62,32 +62,43 @@ namespace Grocer
             decimal price = 0;
             decimal currentCount = 0;
             decimal currentCountReset = 0;
-            decimal currentCountStart = 1; // Start of count, used to check if it's the first discounted item.
             bool isDeal = false;
+            bool isFirstItemInDeal = false;
+            bool enoughItemsForDeal = true;
             for (int i = 0; i < amount; i++)
             {
                 currentCount++;
                 if (!isDeal)
                 {
                     price += item.Price;
-                    if(currentCount == _amountRequiredForDeal && i < _limit)
+                    if (currentCount == _amountRequiredForDeal && i < _limit)
                     {
                         currentCount = currentCountReset;
                         isDeal = true;
+                        isFirstItemInDeal = true;
                     }
                 }
                 else
                 {
-                    decimal amountLeft = amount - i;
-                    if (currentCount == currentCountStart && amountLeft < _amountAcquiredInDeal)
+                    if (isFirstItemInDeal)
                     {
-                        price += item.Price;
+                        isFirstItemInDeal = false;
+
+                        decimal amountLeft = amount - i;
+                        if (amountLeft < _amountAcquiredInDeal)
+                        {
+                            enoughItemsForDeal = false;
+                        }
                     }
-                    else
+                    if (enoughItemsForDeal)
                     {
                         price += item.Price - (item.Price * _dealMod);
                     }
-                    if(currentCount == _amountAcquiredInDeal)
+                    else
+                    {
+                        price += item.Price;
+                    }
+                    if (currentCount == _amountAcquiredInDeal)
                     {
                         currentCount = currentCountReset;
                         isDeal = false;
