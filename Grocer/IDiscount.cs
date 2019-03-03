@@ -52,11 +52,17 @@ namespace Grocer
         decimal _amountAcquiredInDeal;
         public Deal(decimal dealMod, decimal amountRequiredForDeal, decimal amountAcquiredInDeal, int limit)
         {
-
+            _dealMod = dealMod;
+            _limit = limit;
+            _amountRequiredForDeal = amountRequiredForDeal;
+            _amountAcquiredInDeal = amountAcquiredInDeal;
         }
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
-            throw new NotImplementedException();
+            decimal price = 0;
+            price = item.Price;
+            return price;
+
         }
     }
 }
