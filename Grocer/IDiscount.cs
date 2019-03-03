@@ -84,6 +84,7 @@ namespace Grocer
                     price += item.Price - (item.Price * _dealMod);
                     if(numAcq == _amountAcquiredInDeal)
                     {
+                        numAcq = 0;
                         isDeal = false;
                     }
                 }
