@@ -79,7 +79,7 @@ namespace Grocer
                 }
                 else
                 {
-                    numAcq = 1;
+                    numAcq++;
                     limit++;
                     if(numAcq == _amountAcquiredInDeal)
                     {
