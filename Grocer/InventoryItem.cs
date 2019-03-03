@@ -9,6 +9,7 @@ namespace Grocer
         public string Name { get; }
         public decimal Price { get; set; }
         public decimal MarkDown { get; set; }
+        public decimal BundlePrice { get; set; }
         public IDiscount Discount { get; set; }
 
 

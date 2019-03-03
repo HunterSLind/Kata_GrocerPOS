@@ -17,4 +17,19 @@ namespace Grocer
             return newPrice * amount;
         }
     }
+
+    public class Bundle : IDiscount
+    {
+        private decimal _amountInBundle { get; set; }
+        private int _limit { get; set; }
+        public Bundle(decimal amountInBundle, int limit)
+        {
+            _amountInBundle = amountInBundle;
+            _limit = limit;
+        }
+        public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

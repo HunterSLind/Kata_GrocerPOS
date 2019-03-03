@@ -50,7 +50,29 @@ namespace Grocer
             }
         }
         #endregion
-        
+
+        #region BANANA
+        public static readonly string BANANA_ID = "banana";
+        public static readonly decimal BANANA_PRICE = 0.99m;
+        public static readonly decimal BANANA_BUNDLE_PRICE = 1.49m;
+        private static InventoryItem _banana { get; set; }
+        public static InventoryItem BANANA
+        {
+            get
+            {
+                if (_banana == null)
+                {
+                    _banana = new InventoryItem(BANANA_ID)
+                    {
+                        Price = BANANA_PRICE,
+                        BundlePrice = BANANA_BUNDLE_PRICE,
+                        Discount = new Bundle(3, 6)
+                    };
+                }
+                return _banana;
+            }
+        }
+        #endregion
 
         public static void ResetInventory()
         {
