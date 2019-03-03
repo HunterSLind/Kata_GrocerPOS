@@ -37,6 +37,7 @@ namespace Grocer
 
     public enum DiscountType
     {
-        NONE
+        NONE = 0,
+        MARKDOWN = 1
     }
 }

@@ -29,6 +29,7 @@ namespace Grocer
         public static readonly string APPLE_ID = "apple";
         public static readonly decimal APPLE_PRICE = 1.49m;
         public static readonly decimal APPLE_MARKDOWN = 0.50m;
+        public static readonly DiscountType APPLE_DISCOUNT = DiscountType.MARKDOWN;
         private static InventoryItem _apple { get; set; }
         public static InventoryItem APPLE
         {
@@ -39,7 +40,8 @@ namespace Grocer
                     _apple = new InventoryItem(APPLE_ID)
                     {
                         Price = APPLE_PRICE,
-                        MarkDown = APPLE_MARKDOWN
+                        MarkDown = APPLE_MARKDOWN,
+                        discountType = DiscountType.MARKDOWN
                     };
                 }
                 return _apple;

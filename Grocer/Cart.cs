@@ -35,7 +35,14 @@ namespace Grocer
 
         private decimal getTotalPrice(InventoryItem item, decimal amount)
         {
-            return item.Price* amount;
+            if (item.discountType == DiscountType.MARKDOWN)
+            {
+                return (item.Price - item.MarkDown) * amount;
+            }
+            else
+            {
+                return item.Price * amount;
+            }
         }
     }
 }
