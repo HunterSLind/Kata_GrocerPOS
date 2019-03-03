@@ -94,6 +94,27 @@ namespace Grocer
         }
         #endregion
 
+        #region DURIAN
+        public static readonly string DURIAN_ID = "durian";
+        public static readonly decimal DURIAN_PRICE = 1.99m;
+        public static readonly decimal DURIAN_DEAL_MOD = 0.5m; // 50% off
+        private static InventoryItem _durian { get; set; }
+        public static InventoryItem DURIAN
+        {
+            get
+            {
+                if (_durian == null)
+                {
+                    _durian = new InventoryItem(DURIAN_ID)
+                    {
+                        Price = DURIAN_PRICE
+                    };
+                }
+                return _durian;
+            }
+        }
+        #endregion
+
         public static void ResetInventory()
         {
             _hamburger = null;
