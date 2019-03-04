@@ -59,17 +59,34 @@ namespace Grocer
         }
         public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
         {
-            decimal price = 0;
-            decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
-            // Determine the amount of times we get a discount
-            decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountAcquiredInDeal + _amountRequiredForDeal));
-            decimal discountItemCount = discountCount * _amountAcquiredInDeal;
-            decimal nonDiscounted = amount - discountItemCount;
-            decimal modifiedPrice = item.Price - (item.Price * _dealMod);
-            // Math for pricing.
-            price += discountItemCount * modifiedPrice;
-            price += nonDiscounted * item.Price;
-            return price;
+            if (item.SoldByWeight)
+            {
+                decimal price = 0;
+                decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
+                // Determine the amount of times we get a discount
+                decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountRequiredForDeal));
+                decimal nonDiscounted = discountCount * _amountRequiredForDeal;
+                decimal discountItemCount = amount - nonDiscounted;
+                decimal modifiedPrice = item.Price - (item.Price * _dealMod);
+                // Math for pricing.
+                price += discountItemCount * modifiedPrice;
+                price += nonDiscounted * item.Price;
+                return price;
+            }
+            else
+            {
+                decimal price = 0;
+                decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
+                // Determine the amount of times we get a discount
+                decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountAcquiredInDeal + _amountRequiredForDeal));
+                decimal discountItemCount = discountCount * _amountAcquiredInDeal;
+                decimal nonDiscounted = amount - discountItemCount;
+                decimal modifiedPrice = item.Price - (item.Price * _dealMod);
+                // Math for pricing.
+                price += discountItemCount * modifiedPrice;
+                price += nonDiscounted * item.Price;
+                return price;
+            }
         }
     }
 
