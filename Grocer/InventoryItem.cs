@@ -11,6 +11,7 @@ namespace Grocer
         public decimal MarkDown { get; set; }
         public decimal BundlePrice { get; set; }
         public IDiscount Discount { get; set; }
+        public bool SoldByWeight { get; set; }
 
 
         public InventoryItem(string name)

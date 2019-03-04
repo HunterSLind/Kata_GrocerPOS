@@ -140,5 +140,13 @@ namespace Grocer_Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void DealPriceTestWeightedItem()
+        {
+            Deal deal = new Deal(InventoryVariables.EGGPLANT_DEAL_MOD, 1.5m, 1.5m, 3);
+            decimal actual = deal.GetDiscountedPrice(InventoryVariables.EGGPLANT, 2.5m); // 2.5 pounds of eggplant
+            decimal expected = InventoryVariables.EGGPLANT_PRICE * 1.5m; // for the price of 1.5 eggplatns
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

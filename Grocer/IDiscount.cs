@@ -66,11 +66,11 @@ namespace Grocer
             decimal discountItemCount = discountCount * _amountAcquiredInDeal;
             decimal nonDiscounted = amount - discountItemCount;
             decimal modifiedPrice = item.Price - (item.Price * _dealMod);
-
             // Math for pricing.
             price += discountItemCount * modifiedPrice;
             price += nonDiscounted * item.Price;
             return price;
         }
     }
+
 }

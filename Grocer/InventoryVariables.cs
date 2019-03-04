@@ -115,6 +115,55 @@ namespace Grocer
         }
         #endregion
 
+        #region EGGPLANT
+        public static readonly string EGGPLANT_ID = "eggplant";
+        public static readonly decimal EGGPLANT_PRICE = 3.99m;
+        public static readonly decimal EGGPLANT_MARKDOWN = 0;
+        public static readonly decimal EGGPLANT_DEAL_MOD = 1.0m;
+        public static readonly bool EGGPLANT_BYWEIGHT = true;
+        private static InventoryItem _eggplant { get; set; }
+        public static InventoryItem EGGPLANT
+        {
+            get
+            {
+                if (_eggplant == null)
+                {
+                    _eggplant = new InventoryItem(EGGPLANT_ID)
+                    {
+                        Price = EGGPLANT_PRICE,
+                        MarkDown = EGGPLANT_MARKDOWN,
+                        SoldByWeight = EGGPLANT_BYWEIGHT
+                    };
+                }
+                return _eggplant;
+            }
+        }
+        #endregion
+
+        #region FRENCHDIP
+        public static readonly string FRENCHDIP_ID = "frenchdip";
+        public static readonly decimal FRENCHDIP_PRICE = 1.69m;
+        public static readonly decimal FRENCHDIP_MARKDOWN = 0;
+        public static readonly bool FRENCHDIP_BYWEIGHT = true;
+        private static InventoryItem _frenchdip { get; set; }
+        public static InventoryItem FRENCHDIP
+        {
+            get
+            {
+                if (_frenchdip == null)
+                {
+                    _frenchdip = new InventoryItem(FRENCHDIP_ID)
+                    {
+                        Price = FRENCHDIP_PRICE,
+                        MarkDown = FRENCHDIP_MARKDOWN,
+                        SoldByWeight = FRENCHDIP_BYWEIGHT
+                    };
+                }
+                return _frenchdip;
+            }
+        }
+        #endregion
+
         public static void ResetInventory()
         {
             _hamburger = null;
