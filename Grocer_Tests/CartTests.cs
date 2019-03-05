@@ -22,7 +22,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void AddItems()
+        public void AddItem_Multiple()
         {
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
             cart.AddItem(InventoryVariables.HAMBURGER_ID);
@@ -30,7 +30,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void AddItemWithWeight()
+        public void AddItem_WithWeight()
         {
             decimal units = 1.29m;
             cart.AddItem(InventoryVariables.HAMBURGER_ID, units);
@@ -38,7 +38,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void AddItemsWithWeight()
+        public void AddItem_MultipleWithWeight()
         {
             decimal units1 = 1.43m;
             decimal units2 = 2.73m;
@@ -58,7 +58,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void RemoveItemByWeight()
+        public void RemoveItem_UsingWeight()
         {
             decimal unit1 = 1.23m;
             decimal unit2 = 1.50m;
@@ -76,7 +76,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void GetCartWithWeightedItemTotal()
+        public void GetCartTotal_IncludingWeightedItem()
         {
             decimal unit = 1.49m;
             cart.AddItem(InventoryVariables.HAMBURGER_ID, unit);
@@ -85,7 +85,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void GetCartWithMarkdownItemTotal()
+        public void GetCartTotal_WithMarkdownItem()
         {
             cart.AddItem(InventoryVariables.APPLE_ID);
             decimal expected = InventoryVariables.APPLE_PRICE - InventoryVariables.APPLE_MARKDOWN;

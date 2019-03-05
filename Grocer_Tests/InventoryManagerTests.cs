@@ -8,7 +8,7 @@ namespace Grocer_Tests
     public class InventoryManagerTests
     {
         [TestMethod]
-        public void UpdateItemPrice()
+        public void ItemPrice_Update()
         {
             decimal newPrice = InventoryVariables.HAMBURGER_PRICE + 0.25m;
             InventoryManager.UpdateItemPrice(InventoryVariables.HAMBURGER_ID, newPrice);
@@ -17,7 +17,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void UpdateItemMarkdown()
+        public void ItemMarkdown_Update()
         {
             decimal newMarkdown = InventoryVariables.HAMBURGER_MARKDOWN + 0.42m;
             InventoryManager.UpdateItemMarkdown(InventoryVariables.HAMBURGER_ID, newMarkdown);

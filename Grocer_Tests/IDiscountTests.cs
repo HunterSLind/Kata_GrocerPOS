@@ -7,7 +7,7 @@ namespace Grocer_Tests
     public class IDiscountTests
     {
         [TestMethod]
-        public void MarkdownPricingTest()
+        public void Markdown_Price()
         {
             Markdown mkdown = new Markdown();
             decimal actual = mkdown.GetDiscountedPrice(InventoryVariables.APPLE, 1);
@@ -15,7 +15,7 @@ namespace Grocer_Tests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void BundlePricingTest()
+        public void Bundle_Price()
         {
             Bundle bundle = new Bundle(2, 2);
             decimal actual = bundle.GetDiscountedPrice(InventoryVariables.BANANA, 2);
@@ -24,7 +24,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void MultipleBundlePricingTest()
+        public void Bundle_MultiplePrice()
         {
             Bundle bundle = new Bundle(2, 4);
             decimal actual = bundle.GetDiscountedPrice(InventoryVariables.BANANA, 4);
@@ -33,7 +33,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void PartialBundlePricingTest()
+        public void Bundle_PartialPrice()
         {
             Bundle bundle = new Bundle(2, 4);
             decimal actual = bundle.GetDiscountedPrice(InventoryVariables.BANANA, 3);
@@ -42,7 +42,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void BundleWithLimitPricingTest()
+        public void Bundle_Limit()
         {
             Bundle bundle = new Bundle(2, 4);
             decimal actual = bundle.GetDiscountedPrice(InventoryVariables.BANANA, 7);
@@ -51,7 +51,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTest()
+        public void Deal_Price()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 1, 1, 2);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 2); // 2 clementines
@@ -60,7 +60,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWithExtra()
+        public void Deal_ExtraItems()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 1, 1, 2);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 3); // 3 clementines
@@ -69,7 +69,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWithLimit()
+        public void Deal_Limit()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 1, 1, 2);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 4); // 4 clementines
@@ -78,7 +78,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWith2Required()
+        public void Deal_PriceWithMoreThanOneRequirement()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 2, 1, 3);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 3); // 3 clementines
@@ -87,7 +87,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWith2Acquired()
+        public void Deal_PriceWithMoreThanOneAcquirement()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 2, 2, 4);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 5); // 5 clementines
@@ -96,7 +96,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWithFiftyPercentOff()
+        public void Deal_NotFree()
         {
             Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 1, 1, 2);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 2); // 2 durians
@@ -105,7 +105,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWithMultipleDeals()
+        public void Deal_MultipleDeals()
         {
             Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 2, 2, 8);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 10); // 10 durians
@@ -114,7 +114,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestPartialFulfilledDeal()
+        public void Deal_PartialFulfilledDeal()
         {
             Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 2, 2, 8);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 7); // 7 durians
@@ -123,7 +123,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestMultipleFulfilledDeals()
+        public void Deal_MultipleFulfilledDeals()
         {
             Deal deal = new Deal(InventoryVariables.DURIAN_DEAL_MOD, 2, 2, 8);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.DURIAN, 8); // 8 durians
@@ -132,7 +132,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestDealsOfFourWithExtra()
+        public void Deal_HigherDealWithPartialDeal()
         {
             Deal deal = new Deal(InventoryVariables.CLEMENTINE_DEAL_MOD, 4, 4, 16);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.CLEMENTINE, 15); // 15 clementines
@@ -141,7 +141,7 @@ namespace Grocer_Tests
         }
 
         [TestMethod]
-        public void DealPriceTestWeightedItem()
+        public void Deal_WeightedItem()
         {
             Deal deal = new Deal(InventoryVariables.EGGPLANT_DEAL_MOD, 1.5m, 1.5m, 3);
             decimal actual = deal.GetDiscountedPrice(InventoryVariables.EGGPLANT, 2.5m); // 2.5 pounds of eggplant
