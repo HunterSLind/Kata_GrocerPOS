@@ -68,13 +68,7 @@ namespace Grocer_Tests
             Assert.AreEqual(unit2, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
-        [TestMethod]
-        public void GetCartTotal()
-        {
-            cart.AddItem(InventoryVariables.HAMBURGER_ID);
-            Assert.AreEqual(InventoryVariables.HAMBURGER_PRICE, cart.GetCartTotal());
-        }
-
+        
         [TestMethod]
         public void GetCartTotal_IncludingWeightedItem()
         {

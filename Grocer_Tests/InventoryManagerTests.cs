@@ -23,6 +23,17 @@ namespace Grocer_Tests
             InventoryManager.UpdateItemMarkdown(InventoryVariables.HAMBURGER_ID, newMarkdown);
             Assert.AreEqual(newMarkdown, ClientInventory.InventoryDictionary[InventoryVariables.HAMBURGER_ID].MarkDown);
         }
+
+        [TestMethod]
+        public void SetItemBundleDiscount()
+        {
+            InventoryManager.AddBundleDealToItem(InventoryVariables.BANANA_ID, 3, 3);
+            var clientItem = ClientInventory.InventoryDictionary[InventoryVariables.BANANA_ID];
+            var discountedPrice = clientItem.Discount.GetDiscountedPrice(clientItem, 3);
+
+            Assert.AreEqual(clientItem.BundlePrice, discountedPrice);
+            
+        }
         
         [TestCleanup]
         public void Cleanup()

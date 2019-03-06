@@ -44,7 +44,7 @@ namespace Grocer
                         Price = APPLE_PRICE,
                         MarkDown = APPLE_MARKDOWN,
                         Discount = new Markdown()
-                };
+                    };
                 }
                 return _apple;
             }
@@ -171,7 +171,8 @@ namespace Grocer
             ClientInventory.InventoryDictionary = new Dictionary<string, InventoryItem>
             {
                 {InventoryVariables.HAMBURGER_ID, InventoryVariables.HAMBURGER },
-                {InventoryVariables.APPLE_ID, InventoryVariables.APPLE }
+                {InventoryVariables.APPLE_ID, InventoryVariables.APPLE },
+                {InventoryVariables.BANANA_ID, InventoryVariables.BANANA }
             };
         }
     }

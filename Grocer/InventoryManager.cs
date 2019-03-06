@@ -14,5 +14,10 @@ namespace Grocer
         {
             ClientInventory.InventoryDictionary[item].MarkDown = newMarkdown;
         }
+
+        public static void AddBundleDealToItem(string itemName, decimal amountInBundle, int limit)
+        {
+            ClientInventory.InventoryDictionary[itemName].Discount = new Bundle(amountInBundle, limit);
+        }
     }
 }
