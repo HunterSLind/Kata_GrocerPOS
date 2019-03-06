@@ -58,11 +58,5 @@ namespace Grocer_Tests
             decimal expected = InventoryVariables.DURIAN_PRICE;
             Assert.AreEqual(expected, discountedPrice);
         }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            InventoryVariables.ResetInventory();
-        }
     }
 }
