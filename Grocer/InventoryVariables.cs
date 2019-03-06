@@ -86,7 +86,8 @@ namespace Grocer
                 {
                     _clementine = new InventoryItem(CLEMENTINE_ID)
                     {
-                        Price = CLEMENTINE_PRICE
+                        Price = CLEMENTINE_PRICE,
+                        SoldByWeight = false
                     };
                 }
                 return _clementine;

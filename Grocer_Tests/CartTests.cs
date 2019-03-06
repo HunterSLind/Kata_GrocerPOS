@@ -12,6 +12,15 @@ namespace Grocer_Tests
         public void Setup()
         {
             cart = new Cart();
+            ClientInventory.InventoryDictionary = new System.Collections.Generic.Dictionary<string, InventoryItem>() {
+                { InventoryVariables.HAMBURGER_ID, InventoryVariables.HAMBURGER },
+                { InventoryVariables.APPLE_ID, InventoryVariables.APPLE },
+                { InventoryVariables.BANANA_ID, InventoryVariables.BANANA },
+                { InventoryVariables.CLEMENTINE_ID, InventoryVariables.CLEMENTINE },
+                { InventoryVariables.DURIAN_ID, InventoryVariables.DURIAN },
+                { InventoryVariables.EGGPLANT_ID, InventoryVariables.EGGPLANT },
+                { InventoryVariables.FRENCHDIP_ID, InventoryVariables.FRENCHDIP }
+            };
         }
 
         [TestMethod]
@@ -68,7 +77,7 @@ namespace Grocer_Tests
             Assert.AreEqual(unit2, cart.CartItems[InventoryVariables.HAMBURGER]);
         }
 
-        
+
         [TestMethod]
         public void GetCartTotal_IncludingWeightedItem()
         {

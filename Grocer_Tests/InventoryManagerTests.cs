@@ -7,6 +7,20 @@ namespace Grocer_Tests
     [TestClass]
     public class InventoryManagerTests
     {
+        [TestInitialize]
+        public void Setup()
+        {
+            ClientInventory.InventoryDictionary = new System.Collections.Generic.Dictionary<string, InventoryItem>() {
+                { InventoryVariables.HAMBURGER_ID, InventoryVariables.HAMBURGER },
+                { InventoryVariables.APPLE_ID, InventoryVariables.APPLE },
+                { InventoryVariables.BANANA_ID, InventoryVariables.BANANA },
+                { InventoryVariables.CLEMENTINE_ID, InventoryVariables.CLEMENTINE },
+                { InventoryVariables.DURIAN_ID, InventoryVariables.DURIAN },
+                { InventoryVariables.EGGPLANT_ID, InventoryVariables.EGGPLANT },
+                { InventoryVariables.FRENCHDIP_ID, InventoryVariables.FRENCHDIP }
+            };
+        }
+
         [TestMethod]
         public void ItemPrice_Update()
         {
@@ -32,9 +46,9 @@ namespace Grocer_Tests
             var discountedPrice = clientItem.Discount.GetDiscountedPrice(clientItem, 3);
 
             Assert.AreEqual(clientItem.BundlePrice, discountedPrice);
-            
+
         }
-        
+
         [TestCleanup]
         public void Cleanup()
         {
