@@ -49,6 +49,16 @@ namespace Grocer_Tests
 
         }
 
+        [TestMethod]
+        public void SetItemDealDiscount()
+        {
+            InventoryManager.AddDealDiscountToItem(InventoryVariables.DURIAN_ID, 1.0m, 1, 1, 2); // Buy one get one
+            var clientItem = ClientInventory.InventoryDictionary[InventoryVariables.DURIAN_ID];
+            var discountedPrice = clientItem.Discount.GetDiscountedPrice(clientItem, 2);
+            decimal expected = InventoryVariables.DURIAN_PRICE;
+            Assert.AreEqual(expected, discountedPrice);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {

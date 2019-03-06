@@ -19,5 +19,10 @@ namespace Grocer
         {
             ClientInventory.InventoryDictionary[itemName].Discount = new Bundle(amountInBundle, limit);
         }
+
+        public static void AddDealDiscountToItem(string itemName, decimal dealMod, decimal required, decimal acquired, int limit)
+        {
+            ClientInventory.InventoryDictionary[itemName].Discount = new Deal(dealMod, required, acquired, limit);
+        }
     }
 }
