@@ -44,50 +44,6 @@ namespace Grocer
         }
     }
 
-    public class Deal : IDiscount
-    {
-        decimal _dealMod;
-        int _limit;
-        decimal _amountRequiredForDeal;
-        decimal _amountAcquiredInDeal;
-        public Deal(decimal dealMod, decimal amountRequiredForDeal, decimal amountAcquiredInDeal, int limit)
-        {
-            _dealMod = dealMod;
-            _limit = limit;
-            _amountRequiredForDeal = amountRequiredForDeal;
-            _amountAcquiredInDeal = amountAcquiredInDeal;
-        }
-        public decimal GetDiscountedPrice(InventoryItem item, decimal amount)
-        {
-            if (item.SoldByWeight)
-            {
-                decimal price = 0;
-                decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
-                // Determine the amount of times we get a discount
-                decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountRequiredForDeal));
-                decimal nonDiscounted = discountCount * _amountRequiredForDeal;
-                decimal discountItemCount = amount - nonDiscounted;
-                decimal modifiedPrice = item.Price - (item.Price * _dealMod);
-                // Math for pricing.
-                price += discountItemCount * modifiedPrice;
-                price += nonDiscounted * item.Price;
-                return price;
-            }
-            else
-            {
-                decimal price = 0;
-                decimal baseAmountNumForDiscount = Math.Min(amount, _limit);
-                // Determine the amount of times we get a discount
-                decimal discountCount = Math.Floor(baseAmountNumForDiscount / (_amountAcquiredInDeal + _amountRequiredForDeal));
-                decimal discountItemCount = discountCount * _amountAcquiredInDeal;
-                decimal nonDiscounted = amount - discountItemCount;
-                decimal modifiedPrice = item.Price - (item.Price * _dealMod);
-                // Math for pricing.
-                price += discountItemCount * modifiedPrice;
-                price += nonDiscounted * item.Price;
-                return price;
-            }
-        }
-    }
+
 
 }

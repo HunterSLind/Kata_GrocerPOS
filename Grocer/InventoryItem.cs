@@ -29,6 +29,10 @@ namespace Grocer
             return false;
         }
 
+        /// <summary>
+        /// Not the prettiest way to execute on this, would do something more elaborate if necessary.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return Name.GetHashCode();
