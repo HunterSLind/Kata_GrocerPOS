@@ -41,7 +41,7 @@ namespace Grocer_Tests
         [TestMethod]
         public void SetItemBundleDiscount()
         {
-            InventoryManager.AddBundleDiscountToItem(InventoryVariables.BANANA_ID, 3, 3);
+            InventoryManager.AddBundleDiscountToItem(InventoryVariables.BANANA_ID, 3, 3); // Buy 3 for bundle price
             var clientItem = ClientInventory.InventoryDictionary[InventoryVariables.BANANA_ID];
             var discountedPrice = clientItem.Discount.GetDiscountedPrice(clientItem, 3);
 
